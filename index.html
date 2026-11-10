@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Elysium Perú 2026</title>
+<meta name="description" content="Smart Elysium · Celebración de fin de año y 10 años de Smart Fit. Lima, 11 de diciembre · Granja Azul, 7:00 p.m.">
+<meta property="og:title" content="Smart Elysium · 10 años de Smart Fit">
+<meta property="og:description" content="¡Dioses del Olimpo, la hora de la gran celebración ha llegado! Lima · 11 de diciembre · 7:00 p.m.">
+<meta property="og:image" content="titulo.png">
+<meta name="theme-color" content="#f3e9d8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oro:#fdb813; --oro-osc:#e09b00; --tinta:#161412; --papiro:#f3e9d8; --papiro-2:#ecdfc8;
+  --blanco:#fffdf8; --gris:#5b544b;
+  --meandro:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='%23fdb813'%3E%3Crect x='0' y='0' width='64' height='8'/%3E%3Crect x='0' y='56' width='64' height='8'/%3E%3Crect x='8' y='16' width='8' height='40'/%3E%3Crect x='8' y='16' width='40' height='8'/%3E%3Crect x='40' y='16' width='8' height='28'/%3E%3Crect x='24' y='36' width='24' height='8'/%3E%3Crect x='24' y='30' width='8' height='14'/%3E%3C/g%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Montserrat,system-ui,sans-serif;color:var(--tinta);background:var(--papiro);
+  background-image:
+    radial-gradient(circle at 12% 18%,rgba(214,186,140,.35) 0 2px,transparent 3px),
+    radial-gradient(circle at 70% 60%,rgba(214,186,140,.30) 0 1.5px,transparent 2.5px),
+    radial-gradient(circle at 40% 85%,rgba(214,186,140,.30) 0 2px,transparent 3px),
+    radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.55),transparent 60%),
+    radial-gradient(ellipse at 90% 80%,rgba(220,196,156,.35),transparent 55%);
+  background-size:37px 41px,53px 47px,71px 67px,100% 100%,100% 100%;
+  line-height:1.6;overflow-x:hidden;
+}
+body.bloqueado{overflow:hidden}
+img{max-width:100%;display:block}
+.meandro{height:34px;background:var(--meandro) repeat-x center/34px 34px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h2,.cinzel{font-family:Cinzel,serif;font-weight:900;letter-spacing:.04em}
+.kicker{font-family:Montserrat;font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.78rem;color:var(--oro-osc)}
+section{padding:84px 0;position:relative}
+.centro{text-align:center}
+
+/* ===== Portal (intro) ===== */
+#portal{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#portal .puerta{position:absolute;top:0;bottom:0;width:50.5%;background:inherit;background:var(--papiro);transition:transform 1.4s cubic-bezier(.7,0,.2,1)}
+#portal .puerta::after{content:"";position:absolute;top:0;bottom:0;width:60px;background:linear-gradient(90deg,rgba(0,0,0,.08),transparent)}
+#portal .izq{left:0;border-right:3px solid var(--oro)}
+#portal .izq::after{right:-60px;transform:scaleX(-1)}
+#portal .der{right:0;border-left:3px solid var(--oro)}
+#portal .der::after{left:-60px}
+#portal .puerta .col{position:absolute;bottom:4vh;height:72vh;width:auto;opacity:.9}
+#portal .izq .col{left:3vw}
+#portal .der .col{right:3vw}
+#portal .contenido{position:relative;z-index:2;text-align:center;padding:24px;max-width:640px;transition:opacity .6s,transform .8s}
+#portal .meandro-top,#portal .meandro-bot{position:absolute;left:0;right:0;z-index:2;transition:opacity .5s}
+#portal .meandro-top{top:4vh}
+#portal .meandro-bot{bottom:2vh;transform:scaleY(-1)}
+#portal .titulo{width:min(560px,86vw);margin:0 auto 18px;animation:flotar 5s ease-in-out infinite}
+#portal p{font-weight:500;font-size:1.05rem}
+#portal p em{font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:10px;font:800 .95rem Montserrat;letter-spacing:.08em;text-transform:uppercase;
+  padding:15px 30px;border-radius:999px;border:2px solid var(--tinta);background:var(--oro);color:var(--tinta);cursor:pointer;text-decoration:none;
+  box-shadow:4px 4px 0 var(--tinta);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--tinta)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--tinta)}
+.btn.claro{background:var(--blanco)}
+#portal .btn{margin-top:26px}
+#portal.abierto .izq{transform:translateX(-102%)}
+#portal.abierto .der{transform:translateX(102%)}
+#portal.abierto .contenido,#portal.abierto .meandro-top,#portal.abierto .meandro-bot{opacity:0;transform:scale(1.08)}
+#portal.oculto{display:none}
+@keyframes flotar{50%{transform:translateY(-8px)}}
+
+/* ===== Hero ===== */
+.hero{padding:40px 0 70px;text-align:center}
+.hero .titulo{width:min(760px,92vw);margin:36px auto 30px}
+.hero .lema{width:min(860px,94vw);margin:0 auto 26px}
+.hero h1{position:absolute;left:-9999px}
+.hero .grito{font-weight:800;font-size:clamp(1.1rem,2.6vw,1.45rem)}
+.hero .texto{font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:640px;margin:6px auto 0}
+.scroll-ind{margin-top:38px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--gris);text-decoration:none}
+.scroll-ind span{width:2px;height:38px;background:linear-gradient(var(--oro),transparent);animation:bajar 1.8s infinite}
+@keyframes bajar{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ===== Leyenda ===== */
+.leyenda{display:grid;grid-template-columns:120px 1fr 120px;gap:30px;align-items:center}
+.leyenda .col{height:420px;width:auto;margin:0 auto}
+.pergamino{background:var(--blanco);border:3px solid var(--oro);border-radius:28px;padding:44px clamp(22px,5vw,56px);box-shadow:0 18px 50px rgba(120,90,40,.12);text-align:center}
+.pergamino h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:8px 0 18px}
+.pergamino p{font-size:1.05rem;margin-bottom:14px}
+.pergamino p.it{font-style:italic;font-weight:700}
+.diez{display:inline-flex;align-items:center;gap:14px;margin-top:10px;padding:10px 22px;border-radius:999px;background:var(--papiro);font-weight:800}
+.diez b{font-family:Montserrat;font-size:2rem;line-height:1}
+
+/* ===== Templos ===== */
+.tabs{display:inline-flex;gap:10px;padding:8px;background:var(--blanco);border:2px solid var(--tinta);border-radius:999px;margin:26px 0 34px}
+.tab{font:800 1rem Montserrat;letter-spacing:.12em;text-transform:uppercase;border:0;background:transparent;padding:12px 26px;border-radius:999px;cursor:pointer;color:var(--tinta)}
+.tab[aria-selected=true]{background:var(--oro)}
+.templo{display:grid;grid-template-columns:110px 1fr 110px;gap:22px;align-items:end}
+.templo .col{height:100%;max-height:520px;width:auto;margin:0 auto}
+.marco{border:4px solid var(--oro);border-radius:30px;padding:16px;background:rgba(255,253,248,.45)}
+.ficha{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center;background:var(--blanco);border-radius:22px;padding:30px}
+.fecha{text-align:center}
+.fecha .ciudad{font-weight:800;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
+.medallon{width:170px;height:170px;margin:10px auto;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle,var(--blanco) 0 56%,transparent 57%),repeating-conic-gradient(var(--oro) 0 6deg,#ffd76a 6deg 12deg);
+  box-shadow:0 0 0 5px var(--oro) inset}
+.medallon::before{content:"";position:absolute;inset:14px;border-radius:50%;border:2px dashed var(--oro)}
+.medallon b{font-family:Montserrat;font-weight:800;font-size:5rem;line-height:1;letter-spacing:-.04em}
+.fecha .mes{font-weight:800;font-style:italic;font-size:1.25rem;text-transform:uppercase}
+.datos .etq{display:inline-block;background:var(--oro);font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:3px 16px;border-radius:6px;font-size:1.05rem}
+.datos p{font-size:1.08rem;margin:6px 0}
+.datos .bloque{margin-top:14px}
+.datos strong{font-weight:800}
+.cuenta{display:flex;gap:10px;margin:20px 0 6px;flex-wrap:wrap}
+.cuenta div{background:var(--papiro);border-radius:12px;padding:8px 12px;text-align:center;min-width:66px}
+.cuenta b{display:block;font-size:1.5rem;line-height:1.1}
+.cuenta small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gris)}
+.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.acciones .btn{padding:11px 18px;font-size:.78rem;box-shadow:3px 3px 0 var(--tinta)}
+.panel{animation:entrar .5s ease}
+.panel[hidden]{display:none}
+@keyframes entrar{from{opacity:0;transform:translateY(12px)}}
+
+/* ===== Dress code ===== */
+.dress{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+.tarjeta{background:var(--blanco);border-radius:24px;padding:30px;border:2px solid var(--tinta);box-shadow:6px 6px 0 var(--oro)}
+.tarjeta h3{font-family:Cinzel;font-weight:900;font-size:1.35rem;margin-bottom:12px}
+.paleta{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+.paleta div{text-align:center;font-size:.8rem;font-weight:700}
+.paleta span{display:block;width:62px;height:62px;border-radius:50%;border:2px solid var(--tinta);margin:0 auto 6px}
+.ideas{list-style:none;display:grid;gap:10px}
+.ideas li{display:flex;gap:12px;align-items:flex-start}
+.ideas li::before{content:"✦";color:var(--oro-osc);font-size:1.1rem;line-height:1.5}
+.genero{display:flex;gap:8px;margin-bottom:16px;justify-content:center}
+.lookbook{margin-top:30px}
+.carril{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.look{background:var(--blanco);border:2px solid var(--tinta);border-radius:24px;padding:16px 16px 22px;text-align:center;box-shadow:6px 6px 0 var(--oro);animation:entrar .5s ease both}
+.look:nth-child(2){animation-delay:.08s}.look:nth-child(3){animation-delay:.16s}
+.nicho{position:relative;border-radius:999px 999px 16px 16px;background:radial-gradient(circle at 50% 30%,#fff 0,var(--papiro) 70%);border:2px solid var(--oro);padding:18px 10px 30px;overflow:hidden}
+.nicho::before{content:"";position:absolute;left:0;right:0;bottom:0;height:26px;background:var(--meandro) repeat-x center/26px 26px;opacity:.9}
+.nicho svg{position:relative;width:100%;max-width:220px;height:auto;margin:0 auto;display:block;filter:drop-shadow(0 8px 10px rgba(120,90,40,.15))}
+.look h4{font-family:Cinzel;font-weight:900;font-size:1.15rem;margin:16px 0 4px}
+.look p{font-size:.92rem;color:var(--gris)}
+.pista{display:none;text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-top:10px}
+.genero button{font:700 .82rem Montserrat;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--tinta);background:transparent;border-radius:999px;padding:7px 16px;cursor:pointer}
+.genero button[aria-pressed=true]{background:var(--tinta);color:var(--oro)}
+.concurso{margin-top:46px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;background:var(--tinta);color:var(--blanco);border-radius:24px;padding:30px;text-align:center}
+.concurso h3{font-family:Cinzel;font-weight:900;font-size:clamp(1.3rem,3.4vw,2rem);color:var(--oro)}
+.concurso p{max-width:520px}
+.laurel{width:56px;height:56px;flex:none}
+
+/* ===== RSVP ===== */
+.rsvp .titulo-mini{width:min(380px,80vw);margin:0 auto 22px}
+.rsvp h2{font-size:clamp(1.7rem,4.4vw,2.6rem);margin-bottom:10px}
+.rsvp p{max-width:560px;margin:0 auto 26px;font-size:1.05rem}
+footer{text-align:center;padding:30px 0 0}
+footer .logos{width:min(460px,86vw);margin:0 auto 26px}
+footer small{display:block;color:var(--gris);font-size:.8rem;margin-bottom:22px}
+
+/* toast + visor */
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:var(--tinta);color:var(--blanco);padding:12px 22px;border-radius:999px;font-weight:600;transition:.35s;z-index:70;text-align:center;max-width:90vw}
+#toast.ver{opacity:1;transform:translate(-50%,0)}
+#visor{position:fixed;inset:0;background:rgba(22,20,18,.85);z-index:60;display:none;align-items:center;justify-content:center;padding:20px}
+#visor.ver{display:flex}
+#visor img{max-height:90vh;width:auto;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#visor button{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;border:0;background:var(--oro);font-size:1.4rem;font-weight:800;cursor:pointer}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.rv.si{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .leyenda{grid-template-columns:1fr}
+  .leyenda .col,.templo .col{display:none}
+  .templo{grid-template-columns:1fr}
+  .ficha{grid-template-columns:1fr;text-align:center;padding:24px 18px}
+  .cuenta,.acciones{justify-content:center}
+  .dress{grid-template-columns:1fr}
+  .carril{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:4px 8px 14px;margin:0 -20px;padding-left:20px;padding-right:20px}
+  .look{flex:0 0 78%;scroll-snap-align:center}
+  .pista{display:block}
+  #portal .puerta .col{height:46vh;opacity:.35}
+  section{padding:64px 0}
+  .cuenta{gap:6px}.cuenta div{min-width:58px;padding:8px 6px}
+  .datos{text-align:center!important}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+
+/* ===== Animaciones del Olimpo ===== */
+#ambrosia{position:fixed;inset:0;pointer-events:none;z-index:40}
+#portal{z-index:50}
+#lira{position:fixed;left:18px;bottom:18px;z-index:65;width:58px;height:58px;border-radius:50%;border:2px solid var(--tinta);background:var(--oro);color:var(--tinta);cursor:pointer;display:grid;place-items:center;box-shadow:3px 3px 0 var(--tinta);transition:transform .2s}
+#lira:hover{transform:scale(1.06)}
+#lira svg{width:30px;height:30px}
+#lira .eq{position:absolute;right:-6px;top:-6px;display:none;gap:2px;align-items:flex-end;height:16px;background:var(--tinta);padding:3px 4px;border-radius:8px}
+#lira.sonando .eq{display:flex}
+#lira .eq i{width:3px;background:var(--oro);border-radius:2px;animation:eq 1s ease-in-out infinite}
+#lira .eq i:nth-child(2){animation-delay:.25s}#lira .eq i:nth-child(3){animation-delay:.5s}
+#lira.sonando{animation:latido 2.5s ease-in-out infinite}
+#lira:not(.sonando)::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--oro);animation:onda 2s ease-out infinite}
+@keyframes eq{0%,100%{height:3px}50%{height:10px}}
+@keyframes latido{50%{box-shadow:3px 3px 0 var(--tinta),0 0 0 8px rgba(253,184,19,.25)}}
+@keyframes onda{from{transform:scale(.9);opacity:1}to{transform:scale(1.4);opacity:0}}
+#rayo{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:0;display:flex;justify-content:center}
+#rayo svg{height:100vh;width:auto;filter:drop-shadow(0 0 18px #fdb813) drop-shadow(0 0 40px #fff2b0)}
+#rayo.caer{animation:rayo 1s ease-out}
+#rayo.caer::before{content:"";position:absolute;inset:0;background:#fffbe8;animation:flash 1s ease-out}
+@keyframes rayo{0%{opacity:0;clip-path:inset(0 0 100% 0)}8%{opacity:1;clip-path:inset(0 0 0 0)}18%{opacity:.2}26%{opacity:1}60%{opacity:.8}100%{opacity:0}}
+@keyframes flash{0%,6%{opacity:0}10%{opacity:.9}22%{opacity:.1}28%{opacity:.7}100%{opacity:0}}
+.brillos{position:relative;display:block}
+.brillos span{position:absolute;width:18px;height:18px;margin:-9px;pointer-events:none;background:var(--oro);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:destello 3.6s ease-in-out infinite;opacity:0}
+@keyframes destello{0%,100%{transform:scale(0) rotate(0);opacity:0}15%{transform:scale(1.2) rotate(45deg);opacity:1}35%{transform:scale(0) rotate(90deg);opacity:0}}
+.hero .titulo,#portal .titulo{animation:divino 4.5s ease-in-out infinite}
+@keyframes divino{0%,100%{filter:drop-shadow(0 0 0 rgba(253,184,19,0));transform:translateY(0)}50%{filter:drop-shadow(0 0 22px rgba(253,184,19,.55));transform:translateY(-6px)}}
+.hero{position:relative;overflow:hidden}
+.nubes{position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none;z-index:0}
+.nubes div{position:absolute;bottom:0;filter:drop-shadow(0 6px 10px rgba(160,130,80,.12))}
+.nubes .n1{bottom:6px;animation:nube 46s linear infinite}
+.nubes .n2{bottom:60px;animation:nube 64s linear infinite -20s;opacity:.8}
+.nubes .n3{bottom:20px;animation:nube 54s linear infinite -38s}
+@keyframes nube{from{transform:translateX(-300px)}to{transform:translateX(calc(100vw + 40px))}}
+.hero > *:not(.nubes){position:relative;z-index:1}
+h2{background:linear-gradient(100deg,var(--tinta) 40%,#c98a00 50%,var(--tinta) 60%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:oro 6s linear infinite}
+@keyframes oro{from{background-position:100% 0}to{background-position:-150% 0}}
+.emerge{clip-path:inset(100% 0 0 0);transform:translateY(40px);transition:clip-path 1.6s cubic-bezier(.2,.7,.2,1),transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.emerge.arriba{clip-path:inset(-20% 0 0 0);transform:none}
+.medallon::before{animation:girar 30s linear infinite}
+@keyframes girar{to{transform:rotate(360deg)}}
+.laurel{animation:mecer 4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes mecer{50%{rotate:8deg}}
+.look{transition:transform .35s,box-shadow .35s}
+.look:hover{transform:translateY(-8px);box-shadow:6px 12px 0 var(--oro),0 0 40px rgba(253,184,19,.35)}
+.look:hover .nicho svg{animation:levitar 2.4s ease-in-out infinite}
+@keyframes levitar{50%{transform:translateY(-8px)}}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:reflejo 4s ease-in-out infinite}
+@keyframes reflejo{0%,70%{left:-60%}100%{left:130%}}
+#portal .puerta .col{animation:emergerP 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes emergerP{from{transform:translateY(60px);opacity:0}}
+@media (prefers-reduced-motion:reduce){#ambrosia,.nubes,.brillos span{display:none}h2{color:var(--tinta);background:none}.emerge{clip-path:none;transform:none}}
+.datos .extra{display:inline-block;margin-top:10px;background:var(--papiro);border:2px dashed var(--oro);border-radius:12px;padding:8px 14px;font-weight:700}
+
+/* ===== Transición leyenda → templos ===== */
+.transicion{max-width:900px;margin:0 auto;padding:10px 20px 40px;text-align:center}
+.tr-frase{font-size:clamp(1.1rem,2.6vw,1.4rem);margin-bottom:10px}
+.tr-frase em{color:var(--gris)}
+.tr-svg{width:100%;height:auto;overflow:visible}
+.tr-guia{fill:none;stroke:#d9c7a6;stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round}
+.tr-camino{fill:none;stroke:var(--oro);stroke-width:7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;filter:url(#brilloOro)}
+.tr-chispa{opacity:0}
+.tr-olimpo{transform-origin:400px 60px;animation:flotar 5s ease-in-out infinite}
+.tr-destino{cursor:pointer;opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s;transform-box:fill-box;transform-origin:center}
+.tr-destino.ver{opacity:1;transform:none}
+.tr-destino text{font:800 22px Montserrat,sans-serif;letter-spacing:.12em;fill:var(--tinta)}
+.tr-destino .tr-fecha{font-size:17px;fill:var(--oro-osc)}
+.tr-destino:hover g,.tr-destino:focus g{filter:drop-shadow(0 0 10px rgba(253,184,19,.8))}
+@media (prefers-reduced-motion:reduce){.tr-camino{stroke-dashoffset:0}.tr-destino{opacity:1;transform:none}}
+</style>
+</head>
+<body class="bloqueado">
+
+<!-- ===== Portal de entrada ===== -->
+<div id="portal" role="dialog" aria-label="Bienvenida">
+  <div class="puerta izq"><img class="col" src="columna-izq.png" alt=""></div>
+  <div class="puerta der"><img class="col" src="columna-der.png" alt=""></div>
+  <div class="meandro meandro-top"></div>
+  <div class="contenido">
+    <img class="titulo" src="titulo.png" alt="Smart Elysium">
+    <p><em>Las puertas del Olimpo están por abrirse.</em></p>
+    <p>Una noche mítica para celebrar 10 años forjando leyendas.</p>
+    <button class="btn" id="entrar">Entrar al Olimpo ✦</button>
+  </div>
+  <div class="meandro meandro-bot"></div>
+</div>
+
+<div class="meandro"></div>
+
+<!-- ===== Hero ===== -->
+<header class="hero wrap">
+  <h1>Smart Elysium 2026</h1>
+  <img class="titulo rv" src="titulo.png" alt="Smart Elysium">
+  <img class="lema rv" src="lema.png" alt="Detrás de cada imperio hay mentes brillantes que sostienen las columnas">
+  <p class="grito rv">¡Dioses del Olimpo, la hora de la gran celebración ha llegado!</p>
+  <a class="scroll-ind" href="#leyenda">Descubre más<span></span></a>
+</header>
+
+<!-- ===== La leyenda ===== -->
+<section id="leyenda">
+  <div class="wrap leyenda">
+    <img class="col rv" src="columna-izq.png" alt="">
+    <div class="pergamino rv">
+      <div class="kicker">La leyenda</div>
+      <h2>Diez años forjando leyendas</h2>
+      <p>Este año no solo cerramos un ciclo épico, sino que coronamos con laureles <strong>10 años de Smart Fit</strong> forjando verdaderas leyendas.</p>
+      <p>Cada sede, cada equipo y cada idea fueron columnas que sostuvieron este imperio. Hoy es momento de reunirnos, brindar por lo construido y honrar a quienes lo hicieron posible.</p>
+      <p class="it">¡Prepárense para un día mítico que resonará en la eternidad!</p>
+      <p>Acompáñanos a cerrar este ciclo en una noche inolvidable y a la altura de nuestra historia.</p>
+      <div class="diez"><b>10</b> años · Smart Fit &amp; Smart Fit Bienestar</div>
+    </div>
+    <img class="col rv" src="columna-der.png" alt="">
+  </div>
+</section>
+
+<!-- ===== Transición: del Olimpo a Lima ===== -->
+<div class="transicion" id="transicion">
+  <p class="tr-frase rv">Del Olimpo desciende <strong>un camino dorado</strong>…<br><em>y lleva directo a nuestra celebración en Lima.</em></p>
+  <svg class="tr-svg" viewBox="0 0 800 420" role="img" aria-label="Del Olimpo baja un camino dorado hacia Lima">
+    <defs><filter id="brilloOro" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <g class="tr-olimpo">
+      <g fill="#fff" opacity=".95"><ellipse cx="350" cy="96" rx="60" ry="18"/><ellipse cx="450" cy="96" rx="60" ry="18"/><ellipse cx="400" cy="88" rx="70" ry="22"/></g>
+      <g transform="translate(400 40) scale(0.75)"><path d="M-46 -18 L0 -46 L46 -18Z" fill="#fdb813" stroke="#161412" stroke-width="3" stroke-linejoin="round"/><rect x="-44" y="-18" width="88" height="8" fill="#161412"/><g fill="#fffdf8" stroke="#161412" stroke-width="2.5"><rect x="-38" y="-10" width="12" height="48"/><rect x="-18" y="-10" width="12" height="48"/><rect x="6" y="-10" width="12" height="48"/><rect x="26" y="-10" width="12" height="48"/></g><rect x="-50" y="38" width="100" height="8" fill="#161412"/><rect x="-56" y="46" width="112" height="6" fill="#fdb813" stroke="#161412" stroke-width="2"/></g>
+    </g>
+    <path class="tr-guia" d="M400 112 Q340 160 400 205 Q460 250 400 300"/>
+    <path class="tr-camino" pathLength="1" d="M400 112 Q340 160 400 205 Q460 250 400 300"/>
+    <circle class="tr-chispa" r="6" fill="#fff8d6" filter="url(#brilloOro)"/>
+    <a href="#templos" class="tr-destino"><g transform="translate(400 330) scale(0.62)"><path d="M-46 -18 L0 -46 L46 -18Z" fill="#fdb813" stroke="#161412" stroke-width="3" stroke-linejoin="round"/><rect x="-44" y="-18" width="88" height="8" fill="#161412"/><g fill="#fffdf8" stroke="#161412" stroke-width="2.5"><rect x="-38" y="-10" width="12" height="48"/><rect x="-18" y="-10" width="12" height="48"/><rect x="6" y="-10" width="12" height="48"/><rect x="26" y="-10" width="12" height="48"/></g><rect x="-50" y="38" width="100" height="8" fill="#161412"/><rect x="-56" y="46" width="112" height="6" fill="#fdb813" stroke="#161412" stroke-width="2"/></g><text x="400" y="388" text-anchor="middle">LIMA</text><text x="400" y="410" text-anchor="middle" class="tr-fecha">11 DIC · 7:00 P.M.</text></a>
+  </svg>
+</div>
+
+<div class="meandro"></div>
+
+<!-- ===== Tu templo ===== -->
+<section id="templos" class="centro">
+  <div class="wrap">
+    <div class="kicker rv">El templo de Lima</div>
+    <h2 class="rv" style="font-size:clamp(1.7rem,4.4vw,2.6rem)">Perú, el Olimpo te espera</h2>
+    <p class="rv" style="margin-bottom:34px">Estos son los detalles de nuestra gran celebración.</p>
+    <div class="templo rv">
+      <img class="col" src="columna-izq.png" alt="">
+      <div>
+        <div class="panel" id="p-lim"></div>
+      </div>
+      <img class="col" src="columna-der.png" alt="">
+    </div>
+  </div>
+</section>
+
+<div class="meandro"></div>
+
+<!-- ===== Dress code ===== -->
+<section id="dress">
+  <div class="wrap">
+    <div class="centro">
+      <div class="kicker rv">Dress code</div>
+      <h2 class="rv" style="font-size:clamp(1.7rem,4.4vw,2.6rem)">Vístete como un dios</h2>
+      <p class="rv"><strong>Vestimenta blanca.</strong> Temática griega <em>(preferiblemente)</em>.</p>
+    </div>
+    <div class="lookbook">
+      <div class="genero rv" role="group" aria-label="Tipo de look">
+        <button aria-pressed="true" data-g="ella">Ella</button>
+        <button aria-pressed="false" data-g="el">Él</button>
+      </div>
+      <div class="carril" id="looks" aria-live="polite"></div>
+      <p class="pista">Desliza para ver más looks →</p>
+    </div>
+    <div class="dress">
+      <div class="tarjeta rv">
+        <h3>La paleta del Olimpo</h3>
+        <p>El blanco es protagonista. Los acentos dorados y el verde laurel son el toque divino.</p>
+        <div class="paleta">
+          <div><span style="background:#ffffff"></span>Blanco</div>
+          <div><span style="background:#f3e9d8"></span>Marfil</div>
+          <div><span style="background:#fdb813"></span>Dorado</div>
+          <div><span style="background:#7d8a4e"></span>Laurel</div>
+        </div>
+      </div>
+      <div class="tarjeta rv">
+        <h3>Tips para tu look</h3>
+        <ul class="ideas" id="ideas"></ul>
+      </div>
+    </div>
+    <div class="concurso rv">
+      <svg class="laurel" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#fdb813" stroke-width="3" stroke-linecap="round"><path d="M32 58C14 52 8 36 12 14"/><path d="M32 58c18-6 24-22 20-44"/></g><g fill="#fdb813"><ellipse cx="10" cy="22" rx="3" ry="7" transform="rotate(-20 10 22)"/><ellipse cx="11" cy="34" rx="3" ry="7" transform="rotate(-40 11 34)"/><ellipse cx="17" cy="45" rx="3" ry="7" transform="rotate(-60 17 45)"/><ellipse cx="54" cy="22" rx="3" ry="7" transform="rotate(20 54 22)"/><ellipse cx="53" cy="34" rx="3" ry="7" transform="rotate(40 53 34)"/><ellipse cx="47" cy="45" rx="3" ry="7" transform="rotate(60 47 45)"/></g></svg>
+      <div>
+        <h3>Concurso de outfit griego</h3>
+        <p>Los dioses estarán mirando. El mejor atuendo griego de la noche se lleva la gloria… y la corona de laurel.</p>
+      </div>
+      <svg class="laurel" viewBox="0 0 64 64" aria-hidden="true" style="transform:scaleX(-1)"><g fill="none" stroke="#fdb813" stroke-width="3" stroke-linecap="round"><path d="M32 58C14 52 8 36 12 14"/><path d="M32 58c18-6 24-22 20-44"/></g><g fill="#fdb813"><ellipse cx="10" cy="22" rx="3" ry="7" transform="rotate(-20 10 22)"/><ellipse cx="11" cy="34" rx="3" ry="7" transform="rotate(-40 11 34)"/><ellipse cx="17" cy="45" rx="3" ry="7" transform="rotate(-60 17 45)"/><ellipse cx="54" cy="22" rx="3" ry="7" transform="rotate(20 54 22)"/><ellipse cx="53" cy="34" rx="3" ry="7" transform="rotate(40 53 34)"/><ellipse cx="47" cy="45" rx="3" ry="7" transform="rotate(60 47 45)"/></g></svg>
+    </div>
+  </div>
+</section>
+
+<div class="meandro"></div>
+
+<!-- ===== Confirmación ===== -->
+<section id="rsvp" class="rsvp centro">
+  <div class="wrap">
+    <img class="titulo-mini rv" src="titulo.png" alt="Smart Elysium">
+    <h2 class="rv">¿Te unes al Olimpo?</h2>
+    <p class="rv">Confirma tu asistencia para reservar tu lugar entre los dioses.</p>
+    <a class="btn rv" id="btn-rsvp" href="#" target="_blank" rel="noopener">Confirmar mi asistencia ✦</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="logos" src="logos.png" alt="Smart Fit 10 años · Smart Fit Bienestar">
+    <small>Smart Elysium Perú 2026 · Detrás de cada imperio hay mentes brillantes.</small>
+  </div>
+  <div class="meandro" style="transform:scaleY(-1)"></div>
+</footer>
+
+<div id="visor" role="dialog" aria-label="Invitación"><button aria-label="Cerrar">×</button><img alt="Invitación Smart Elysium"></div>
+<div id="toast" role="status"></div>
+
+<script src="looks.js"></script>
+<script src="olimpo.js" defer></script>
+<script>
+/* ====== CONFIGURACIÓN: edita aquí ====== */
+const RSVP_URL = "https://forms.gle/h1JZYLFKYVoHXZQ4A"; // ← pega aquí el enlace del Google Form de confirmación
+
+const CIUDADES = {
+  lim: {
+    ciudad: "Lima", dia: "11", mes: "Diciembre",
+    lugar: "Granja Azul", direccion: "Av. Augusto Pérez Araníbar 1998, San Isidro 15076",
+    hora: "7:00 p.m.",
+    inicio: "2026-12-11T19:00:00-05:00", fin: "2026-12-11T23:59:00-05:00",
+    mapa: "Granja Azul, Av. Augusto Pérez Araníbar 1998, San Isidro, Lima, Perú"
+  }
+};
+
+const IDEAS = {
+  ella: ["Vestido blanco largo y vaporoso, estilo peplo o túnica drapeada.","Cinturón o cordón dorado marcando la cintura.","Corona de laurel, tiara dorada o hojas en el cabello.","Sandalias de tiras o planas en dorado o nude.","Brazaletes, aretes y accesorios dorados."],
+  el: ["Camisa de lino blanca o túnica estilo quitón.","Pantalón blanco o beige claro, de lino o algodón.","Capa o estola dorada sobre un hombro.","Corona de laurel o brazalete dorado.","Sandalias de cuero o calzado claro."]
+};
+/* ======================================= */
+
+const $ = s => document.querySelector(s);
+const toast = msg => { const t=$('#toast'); t.textContent=msg; t.classList.add('ver'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('ver'),3200); };
+
+// Portal
+$('#entrar').addEventListener('click', () => {
+  const p = $('#portal'); p.classList.add('abierto'); document.body.classList.remove('bloqueado');
+  setTimeout(() => p.classList.add('oculto'), 1500);
+});
+
+// Paneles de ciudad
+const gcal = c => {
+  const f = d => new Date(d).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const q = new URLSearchParams({action:'TEMPLATE', text:`Smart Elysium · ${c.ciudad}`, dates:`${f(c.inicio)}/${f(c.fin)}`,
+    details:'Celebración de fin de año y 10 años de Smart Fit. Dress code: vestimenta blanca, temática griega (preferiblemente).', location:`${c.lugar}, ${c.direccion}`});
+  return 'https://calendar.google.com/calendar/render?' + q;
+};
+for (const [k,c] of Object.entries(CIUDADES)) {
+  $('#p-'+k).innerHTML = `
+    <div class="marco"><div class="ficha">
+      <div class="fecha"><div class="ciudad">${c.ciudad}</div><div class="medallon"><b>${c.dia}</b></div><div class="mes">${c.mes}</div></div>
+      <div class="datos" style="text-align:left">
+        <span class="etq">Dress code</span>
+        <p>Vestimenta blanca.<br>Temática griega <small><strong>(preferiblemente)</strong></small></p>
+        ${c.extra ? `<p class="extra">🩱 ${c.extra}</p>` : ''}
+        <div class="bloque"><p><strong>Lugar:</strong> ${c.lugar}</p><p>${c.direccion}</p></div>
+        <div class="bloque"><p><strong>Hora:</strong> ${c.hora}</p></div>
+        <div class="cuenta" data-fecha="${c.inicio}"></div>
+        <div class="acciones">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.mapa)}" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn claro" href="${gcal(c)}" target="_blank" rel="noopener">Agendar</a>
+          ${c.poster ? `<button class="btn claro" data-poster="${c.poster}">Ver invitación</button>` : ''}
+        </div>
+      </div>
+    </div></div>`;
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => { const on = x===t; x.setAttribute('aria-selected', on); $('#'+x.getAttribute('aria-controls')).hidden = !on; });
+}));
+
+// Cuenta regresiva
+const tick = () => document.querySelectorAll('.cuenta').forEach(el => {
+  let ms = new Date(el.dataset.fecha) - Date.now();
+  if (ms <= 0) { el.innerHTML = '<div style="padding:10px 16px"><b style="font-size:1.1rem">¡Es hoy! El Olimpo te espera ✦</b></div>'; return; }
+  const d=Math.floor(ms/864e5), h=Math.floor(ms/36e5)%24, m=Math.floor(ms/6e4)%60, s=Math.floor(ms/1e3)%60;
+  el.innerHTML = [[d,'días'],[h,'horas'],[m,'min'],[s,'seg']].map(([n,l])=>`<div><b>${String(n).padStart(2,'0')}</b><small>${l}</small></div>`).join('');
+});
+tick(); setInterval(tick, 1000);
+
+// Visor de invitación
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-poster]');
+  if (b) { $('#visor img').src = b.dataset.poster; $('#visor').classList.add('ver'); }
+});
+$('#visor').addEventListener('click', e => { if (e.target.tagName !== 'IMG') $('#visor').classList.remove('ver'); });
+
+// Ideas de look
+const pintar = g => {
+  $('#ideas').innerHTML = IDEAS[g].map(i=>`<li>${i}</li>`).join('');
+  $('#looks').innerHTML = (window.LOOKS?.[g]||[]).map(l=>`<article class="look"><div class="nicho">${l.s.replace('role="img"',`role="img" aria-label="${l.n}"`)}</div><h4>${l.n}</h4><p>${l.d}</p></article>`).join('');
+  $('#looks').scrollLeft = 0;
+};
+document.querySelectorAll('.genero button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.genero button').forEach(x => x.setAttribute('aria-pressed', x===b)); pintar(b.dataset.g);
+}));
+pintar('ella');
+
+// Confirmación
+const rsvp = $('#btn-rsvp');
+if (RSVP_URL) rsvp.href = RSVP_URL;
+else rsvp.addEventListener('click', e => { e.preventDefault(); toast('La confirmación se habilitará muy pronto.'); });
+
+
+// Transición: caminos dorados que se dibujan con el scroll
+(() => {
+  const box = document.getElementById('transicion'); if (!box) return;
+  const caminos = box.querySelectorAll('.tr-camino'), chispas = box.querySelectorAll('.tr-chispa'), destinos = box.querySelectorAll('.tr-destino');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pintar = () => {
+    const r = box.getBoundingClientRect(), vh = innerHeight;
+    let k = reduce ? 1 : Math.min(1, Math.max(0, (vh*0.85 - r.top) / (r.height*0.85)));
+    caminos.forEach((c,i) => {
+      c.style.strokeDashoffset = 1 - k;
+      const L = c.getTotalLength(), pt = c.getPointAtLength(L*k);
+      chispas[i].setAttribute('cx', pt.x); chispas[i].setAttribute('cy', pt.y);
+      chispas[i].style.opacity = (k > 0.02 && k < 0.99) ? 1 : 0;
+    });
+    destinos.forEach(d => d.classList.toggle('ver', k > 0.92));
+  };
+  addEventListener('scroll', pintar, {passive:true}); addEventListener('resize', pintar); pintar();
+  })();
+
+// Aparición al hacer scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('si'); io.unobserve(e.target); } }), {threshold:.15});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
